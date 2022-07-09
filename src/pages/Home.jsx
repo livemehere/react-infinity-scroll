@@ -5,16 +5,20 @@ import { useNavigate } from "react-router-dom";
 const Home = () => {
   const navigate = useNavigate();
   return (
-    <>
+    <Container>
       <Header>
         <h1>Kong's 단어장</h1>
       </Header>
       <PostWrap />
       <FloatBtn onClick={() => navigate("/new")}>생성</FloatBtn>
-    </>
+    </Container>
   );
 };
 export default Home;
+
+const Container = styled.div`
+  overflow: auto;
+`;
 
 const Header = styled.header`
   position: sticky;

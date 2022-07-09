@@ -3,6 +3,7 @@ import {
   addPost,
   deletePost,
   getAllPost,
+  loadMorePost,
   updatePost,
 } from "../service/firebase/posts";
 
@@ -16,6 +17,9 @@ export const postsSlice = createSlice({
     builder
       .addCase(fetchPosts.fulfilled, (state, action) => {
         state.posts = action.payload;
+      })
+      .addCase(fetchMorePosts.fulfilled, (state, action) => {
+        state.posts = [...state.posts, ...action.payload];
       })
       .addCase(createPost.fulfilled, (state, action) => {})
       .addCase(removePost.fulfilled, (state, action) => {})
@@ -31,6 +35,14 @@ export const fetchPosts = createAsyncThunk("posts/fetchPosts", async () => {
   const posts = await getAllPost();
   return posts;
 });
+
+export const fetchMorePosts = createAsyncThunk(
+  "posts/fetchMorePosts",
+  async (lastPostRef) => {
+    const posts = await loadMorePost(lastPostRef);
+    return posts;
+  }
+);
 
 export const createPost = createAsyncThunk(
   "posts/createPosts",

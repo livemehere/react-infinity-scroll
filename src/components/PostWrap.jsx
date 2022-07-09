@@ -1,16 +1,44 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { fetchPosts } from "../redux/postsSlice";
+import { useEffect, useRef, useState } from "react";
+import { fetchMorePosts, fetchPosts } from "../redux/postsSlice";
 import styled from "styled-components";
 import PostBox from "./PostBox";
+import { getPostRefById } from "../service/firebase/posts";
 
 const PostWrap = () => {
   const { posts } = useSelector((state) => state.posts);
+  const [detect, setDetect] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchPosts());
   }, []);
+
+  const handleLoadMore = async () => {
+    const lastDoc = await getPostRefById(posts.at(-1).id);
+    dispatch(fetchMorePosts(lastDoc));
+    setDetect(false);
+  };
+
+  useEffect(() => {
+    handleLoadMore();
+  }, [detect]);
+
+  const scrollBottom = (e) => {
+    if (
+      window.innerHeight + Math.ceil(window.pageYOffset) >=
+      document.body.offsetHeight
+    ) {
+      setDetect(true);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", scrollBottom);
+
+    return () => window.removeEventListener("scroll", scrollBottom);
+  }, []);
+
   return (
     <Container>
       {posts.map((post) => (
