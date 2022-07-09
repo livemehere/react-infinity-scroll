@@ -1,13 +1,17 @@
-body {
+body{
+  background-color: #ffffff;
+  background-image:  radial-gradient(#CCD6A6 1.7000000000000002px, transparent 1.7000000000000002px), radial-gradient(#CCD6A6 1.7000000000000002px, #ffffff 1.7000000000000002px);
+  background-size: 68px 68px;
+  background-position: 0 0,34px 34px;
+  padding:0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+.btn{
+  cursor: pointer;
+}
+
+.btn:hover{
+  color: red;
 }
