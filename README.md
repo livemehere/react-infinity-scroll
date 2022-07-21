@@ -8,6 +8,8 @@
 
 <img width="1402" alt="image" src="https://user-images.githubusercontent.com/61547778/180201494-4a97d504-a546-46de-b31c-2ad2eb1f99c7.png">
 
+<img width="676" alt="image" src="https://user-images.githubusercontent.com/61547778/180201622-8ae0ec0c-af2b-4f3c-b679-0f64c50e8d05.png">
+
 
 
 ## Scroll 하단 감지 이벤트
