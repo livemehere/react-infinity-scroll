@@ -6,6 +6,10 @@
 - infinity-scroll
 - react-router-dom
 
+<img width="1402" alt="image" src="https://user-images.githubusercontent.com/61547778/180201494-4a97d504-a546-46de-b31c-2ad2eb1f99c7.png">
+
+
+
 ## Scroll 하단 감지 이벤트
 
 ```js
